@@ -51,11 +51,9 @@ for letter1, letter2 in zip(sorted_list_1, sorted_list_2):
 
 #Get uer input
 choice = input("\nWould you like to encode (e) or decode (d) a message (e/d): ").lower().strip()
-message = input("\nEnter your message: ").lower().strip()
-
-#Remove non-English characters and punctuation from message 
 
 if choice == "e":
+  message = input("\nEnter your message that you would like to encode: ").lower().strip()
   for non_letter in non_letters:
     if non_letter in message:
       message = message.replace(non_letter, "")
@@ -64,11 +62,12 @@ if choice == "e":
   for each in message_list:
     print(primary_key[each], end="")
 elif choice == "d":
+  message = input("\nEnter the message that you would like to decode: ").lower().strip()
   message_list = list(message)
-  print("Here is the decoded message: ", end="")
+  print("\nHere is the decoded message:", end="")
   for each in message_list:
     for key, value in primary_key.items():
       if each == value:
         print(key, end="")
 else:
-  print("This is not a valid response!")
+  print("Sorry! This is not a valid response!")
